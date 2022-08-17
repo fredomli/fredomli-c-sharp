@@ -50,13 +50,15 @@
                     </StackPanel>
 
                     <!--  侧边栏菜单  -->
-                    <ListBox ItemsSource="{Binding MenuBars}">
+                    <ListBox ItemContainerStyle="{StaticResource SidebarListBoxItemStyle}" ItemsSource="{Binding MenuBars}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel
+                                    VerticalAlignment="Center"
+                                    Background="Transparent"
+                                    Orientation="Horizontal">
                                     <materialDesign:PackIcon Margin="15,0" Kind="{Binding Icon}" />
                                     <TextBlock Margin="10,0" Text="{Binding Title}" />
-
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

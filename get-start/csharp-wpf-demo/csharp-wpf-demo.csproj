@@ -109,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\IndexView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +127,9 @@
     </Compile>
     <Compile Include="Common\Model\MenuBar.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\IndexView.xaml.cs">
+      <DependentUpon>IndexView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
