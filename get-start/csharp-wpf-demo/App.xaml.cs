@@ -8,6 +8,8 @@ using System.Windows;
 using Prism.Ioc;
 using Prism.DryIoc;
 using Prism.Mvvm;
+using csharp_wpf_demo.Views;
+using csharp_wpf_demo.ViewModels;
 
 namespace csharp_wpf_demo
 {
@@ -24,9 +26,12 @@ namespace csharp_wpf_demo
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<IndexView,IndexViewModel>();
+            containerRegistry.RegisterForNavigation<NoteView, NoteViewModel>();
+            containerRegistry.RegisterForNavigation<MemoView, MemoViewModel>();
+            containerRegistry.RegisterForNavigation<SettingView, SettingViewModel>();
         }
-
+        // 手动加载对象
         //protected override void ConfigureViewModelLocator()
         //{
         //    base.ConfigureViewModelLocator();

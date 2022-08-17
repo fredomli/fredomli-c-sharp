@@ -43,6 +43,13 @@ namespace csharp_wpf_demo.Views
                     this.WindowState = WindowState.Normal;
                 }
             };
+
+            // 点击侧边栏关闭事件
+            menuBar.SelectionChanged += (s, e) =>
+            {
+                // 关闭左侧抽屉
+                drawerHost.IsLeftDrawerOpen = false;
+            };
         }
     }
 }
