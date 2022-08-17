@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Prism.Ioc;
 using Prism.DryIoc;
+using Prism.Mvvm;
 
 namespace csharp_wpf_demo
 {
@@ -18,12 +19,18 @@ namespace csharp_wpf_demo
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<View.MainView>();
+            return Container.Resolve<Views.MainView>();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
 
         }
+
+        //protected override void ConfigureViewModelLocator()
+        //{
+        //    base.ConfigureViewModelLocator();
+        //    ViewModelLocationProvider.Register<>
+        //}
     }
 }
