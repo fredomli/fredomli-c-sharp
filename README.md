@@ -3,7 +3,7 @@
 ## 准备
 使用WPF搭建项目，项目采用`Prism`框架和`Material Design`样式设计。
 
-*依赖：*  
+*添加依赖：*  
 > Prism Version v7.2.0.1422  
 > MaterialDesign Version v4.5.0
 
