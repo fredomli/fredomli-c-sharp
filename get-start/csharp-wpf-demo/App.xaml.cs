@@ -26,16 +26,17 @@ namespace csharp_wpf_demo
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<IndexView,IndexViewModel>();
+            containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
             containerRegistry.RegisterForNavigation<NoteView, NoteViewModel>();
             containerRegistry.RegisterForNavigation<MemoView, MemoViewModel>();
             containerRegistry.RegisterForNavigation<SettingView, SettingViewModel>();
         }
-        // 手动加载对象
-        //protected override void ConfigureViewModelLocator()
-        //{
-        //    base.ConfigureViewModelLocator();
-        //    ViewModelLocationProvider.Register<>
-        //}
+
+        // 手动加载ViewModel
+        protected override void ConfigureViewModelLocator()
+        {
+            base.ConfigureViewModelLocator();
+            // ViewModelLocationProvider.Register<NoteView,NoteViewModel>();
+        }
     }
 }
