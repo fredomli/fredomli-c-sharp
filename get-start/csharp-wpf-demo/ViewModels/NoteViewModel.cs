@@ -10,11 +10,9 @@ namespace csharp_wpf_demo.ViewModels
     {
         public NoteViewModel()
         {
-            Console.WriteLine("构造函数");
             NoteList = new ObservableCollection<TaskList>();
             createNoteListData();
             AddNoteCommand = new DelegateCommand(AddNode);
-            Console.WriteLine("*****************node 执行");
         }
 
         /// <summary>
