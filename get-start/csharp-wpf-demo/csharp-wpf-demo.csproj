@@ -115,7 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\Model\BaseDto.cs" />
+    <Compile Include="Common\Model\MemoList.cs" />
     <Compile Include="Common\Model\TaskBar.cs" />
+    <Compile Include="Common\Model\TaskList.cs" />
     <Compile Include="Extensions\PrismManager.cs" />
     <Compile Include="ViewModels\MemoViewModel.cs" />
     <Compile Include="ViewModels\NoteViewModel.cs" />
