@@ -37,25 +37,26 @@
             <ToggleButton Margin="8,0,16,0" IsChecked="{Binding IsDarkTheme}" />
             <TextBlock Text="深色" />
         </StackPanel>
-
-        <ItemsControl Grid.Row="1" ItemsSource="{Binding Swatches}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type materialDesignColors:ISwatch}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock
-                            Width="80"
-                            VerticalAlignment="Center"
-                            Text="{Binding Name}" />
-                        <ItemsControl ItemTemplate="{StaticResource SwatchColorTemplate}" ItemsSource="{Binding Hues}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <VirtualizingStackPanel Orientation="Horizontal" />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                        </ItemsControl>
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding Swatches}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type materialDesignColors:ISwatch}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Width="80"
+                                VerticalAlignment="Center"
+                                Text="{Binding Name}" />
+                            <ItemsControl ItemTemplate="{StaticResource SwatchColorTemplate}" ItemsSource="{Binding Hues}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </UserControl>

@@ -25,7 +25,7 @@
             Text="设置" />
         <Border BorderBrush="#DDDDDD" BorderThickness="0,0,0,0.3" />
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="20,40,20,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="220" />
                 <ColumnDefinition />
@@ -53,7 +53,10 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static ext:PrismManager.SettingsViewRegionName}" />
+            <ContentControl
+                Grid.Column="1"
+                Margin="10,0,0,0"
+                prism:RegionManager.RegionName="{x:Static ext:PrismManager.SettingsViewRegionName}" />
         </Grid>
     </Grid>
 </UserControl>

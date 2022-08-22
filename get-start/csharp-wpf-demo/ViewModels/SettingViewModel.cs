@@ -45,9 +45,9 @@ namespace csharp_wpf_demo.ViewModels
         /// </summary>
         public void CreateMenuBar()
         {
-            MenuBars.Add(new MenuBar() { Icon = "Home", Title = "个性化", NameSpace = "SkinView" });
-            MenuBars.Add(new MenuBar() { Icon = "Note", Title = "系统设置", NameSpace = "ConfigView" });
-            MenuBars.Add(new MenuBar() { Icon = "NotePlusOutline", Title = "关于更多", NameSpace = "AboutView" });
+            MenuBars.Add(new MenuBar() { Icon = "Palette", Title = "个性化", NameSpace = "SkinView" });
+            MenuBars.Add(new MenuBar() { Icon = "Cog", Title = "系统设置", NameSpace = "ConfigView" });
+            MenuBars.Add(new MenuBar() { Icon = "InformationOutline", Title = "关于更多", NameSpace = "AboutView" });
         }
 
         /// <summary>
