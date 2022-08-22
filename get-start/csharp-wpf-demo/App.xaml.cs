@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Prism.Ioc;
 using Prism.DryIoc;
-using Prism.Mvvm;
 using csharp_wpf_demo.Views;
 using csharp_wpf_demo.ViewModels;
 
@@ -26,10 +19,17 @@ namespace csharp_wpf_demo
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            // index nav
             containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
             containerRegistry.RegisterForNavigation<NoteView, NoteViewModel>();
             containerRegistry.RegisterForNavigation<MemoView, MemoViewModel>();
             containerRegistry.RegisterForNavigation<SettingView, SettingViewModel>();
+
+            // setting nav
+            containerRegistry.RegisterForNavigation<SkinView, SkinViewModel>();
+            containerRegistry.RegisterForNavigation<AboutView, AboutViewModel>();
+            containerRegistry.RegisterForNavigation<ConfigView, ConfigViewModel>();
+
         }
 
         // 手动加载ViewModel
