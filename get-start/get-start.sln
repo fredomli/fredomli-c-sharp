@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-wpf-demo", "csharp-w
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-web-demo", "csharp-web-demo\csharp-web-demo.csproj", "{82F495F6-B8F7-4D0E-885E-552808FA6D17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-mes-demo", "csharp-mes-demo\csharp-mes-demo.csproj", "{ADA37291-7E83-489D-B95C-8A3B5CA08183}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{82F495F6-B8F7-4D0E-885E-552808FA6D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82F495F6-B8F7-4D0E-885E-552808FA6D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82F495F6-B8F7-4D0E-885E-552808FA6D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA37291-7E83-489D-B95C-8A3B5CA08183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA37291-7E83-489D-B95C-8A3B5CA08183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA37291-7E83-489D-B95C-8A3B5CA08183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA37291-7E83-489D-B95C-8A3B5CA08183}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

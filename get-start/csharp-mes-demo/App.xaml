@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="csharp_mes_demo.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:csharp_mes_demo"
+    StartupUri="Views/MainWindow.xaml">
+    <Application.Resources />
+</Application>
