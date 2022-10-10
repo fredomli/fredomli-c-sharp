@@ -1,12 +1,275 @@
-﻿<Window x:Class="csharp_mes_demo.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:csharp_mes_demo"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+﻿<Window
+    x:Class="csharp_mes_demo.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:csharp_mes_demo.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+    Title="MainWindow"
+    Width="800"
+    Height="600"
+    AllowsTransparency="True"
+    ResizeMode="CanResizeWithGrip"
+    WindowChrome.WindowChrome="{DynamicResource WindowChromeKey}"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <WindowChrome x:Key="WindowChromeKey">
+            <WindowChrome.CaptionHeight>1</WindowChrome.CaptionHeight>
+            <WindowChrome.CornerRadius>30</WindowChrome.CornerRadius>
+        </WindowChrome>
+        <Style x:Key="navBtn" TargetType="Button">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="ExtraBold" />
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Margin" Value="5,0,0,0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border x:Name="Border" Background="#FFFFFF" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#F5F5F5" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="#FFFFFF" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style
+            x:Key="BtnCloseStyle"
+            BasedOn="{StaticResource navBtn}"
+            TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border x:Name="Border" Background="#FFFFFF" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#FF4400" />
+                                <Setter Property="Foreground" Value="#FFFFFF" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="#FFFFFF" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SidebarTreeViewItemStyle" TargetType="TreeViewItem">
+            <Setter Property="MinHeight" Value="40" />
+            <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                        <Grid>
+                            <Border x:Name="BorderHeader" />
+                            <Border x:Name="Border" Background="#303030" />
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                ContentSource="Header" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="BorderHeader" Property="BorderThickness" Value="4,0,0,0" />
+                                <Setter TargetName="BorderHeader" Property="BorderBrush" Value="#9A67EA" />
+                                <Setter TargetName="Border" Property="Background" Value="#9A67EA" />
+                                <Setter TargetName="Border" Property="Opacity" Value="0.2" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#9A67EA" />
+                                <Setter TargetName="Border" Property="Opacity" Value="0.2" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ToggleButtonNavStyle" TargetType="ToggleButton">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid>
+                            <Border
+                                x:Name="BorderBack"
+                                Height="30"
+                                Background="#000000" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="BorderBack" Property="Background" Value="#CCCCCC" />
+                                <Setter Property="Foreground" Value="#9A67EA" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter TargetName="BorderBack" Property="Background" Value="#000000" />
+                                <Setter Property="Foreground" Value="#999999" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <DockPanel>
+            <Label
+                x:Name="ColorZoneNav"
+                Width="200"
+                Height="40"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Background="#303030"
+                BorderBrush="{x:Null}"
+                BorderThickness="0"
+                Content="MES系统"
+                DockPanel.Dock="Top"
+                FontSize="20"
+                FontWeight="Bold"
+                Foreground="#FFFFFF" />
+            <ToggleButton DockPanel.Dock="Top" Style="{StaticResource ToggleButtonNavStyle}">
+                <TextBlock
+                    FontFamily="{StaticResource iconfont}"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Text="&#xe7f4;" />
+            </ToggleButton>
+
+            <TreeView
+                Width="200"
+                Background="#303030"
+                BorderThickness="0"
+                IsEnabled="True"
+                ItemContainerStyle="{StaticResource SidebarTreeViewItemStyle}">
+                <TreeViewItem Header="用户管理">
+                    <TreeViewItem Header="用户管理" />
+                    <TreeViewItem Header="用户管理" />
+                    <TreeViewItem Header="用户管理" />
+                </TreeViewItem>
+                <TreeViewItem Header="处方管理">
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                </TreeViewItem>
+                <TreeViewItem Header="物料管理">
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                </TreeViewItem>
+                <TreeViewItem Header="设备管理">
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                </TreeViewItem>
+                <TreeViewItem Header="工单管理">
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                </TreeViewItem>
+                <TreeViewItem Header="系统设置">
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                    <TreeViewItem Header="处方管理" />
+                </TreeViewItem>
+            </TreeView>
+        </DockPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <DockPanel>
+                <Border
+                    Height="1"
+                    BorderBrush="#CCCCCC"
+                    BorderThickness="0,0,0,1"
+                    DockPanel.Dock="Bottom">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="16"
+                            Opacity="1"
+                            ShadowDepth="0"
+                            Color="#CCCCCC" />
+                    </Border.Effect>
+                </Border>
+                <ContentControl x:Name="ColorZone" DockPanel.Dock="Top">
+                    <DockPanel Background="White" LastChildFill="False">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Test}" />
+                        </StackPanel>
+                        <!--  导航栏右侧菜单缩小、放大、退出  -->
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                            <!--  头像  -->
+                            <Image
+                                Width="30"
+                                Height="25"
+                                Cursor="Hand"
+                                Source="../Assets/Images/header2.jpeg">
+                                <Image.Clip>
+                                    <EllipseGeometry
+                                        Center="12.5,12.5"
+                                        RadiusX="12.5"
+                                        RadiusY="12.5" />
+                                </Image.Clip>
+                            </Image>
+                            <Button
+                                x:Name="btnMin"
+                                Content="─"
+                                Style="{StaticResource navBtn}" />
+                            <Button
+                                x:Name="btnMax"
+                                Content="⃞"
+                                Style="{StaticResource navBtn}" />
+                            <Button
+                                x:Name="btnClose"
+                                Content="✕"
+                                Style="{StaticResource BtnCloseStyle}" />
+                        </StackPanel>
+                    </DockPanel>
+                </ContentControl>
+            </DockPanel>
+
+            <!--  内容窗体  -->
+            <ContentControl Grid.Row="1" />
+        </Grid>
     </Grid>
 </Window>

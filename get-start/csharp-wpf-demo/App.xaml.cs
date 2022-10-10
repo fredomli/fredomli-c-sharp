@@ -16,7 +16,7 @@ namespace csharp_wpf_demo
         {
             return Container.Resolve<Views.MainView>();
         }
-
+        
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // index nav

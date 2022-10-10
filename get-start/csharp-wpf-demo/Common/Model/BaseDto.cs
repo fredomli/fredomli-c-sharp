@@ -11,7 +11,7 @@ namespace csharp_wpf_demo.Common.Model
         private int id;
         private DateTime createDate;
         private DateTime updateDate;
-
+        
         public int Id
         {
             get { return id; }
